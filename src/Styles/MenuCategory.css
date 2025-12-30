@@ -1,0 +1,150 @@
+/* components/MenuCategory/MenuCategory.css */
+.menu-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  color: #2c5530;
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.category-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(135deg, #d4a574, #b8864b);
+  border-radius: 2px;
+}
+
+.menu-items {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu-item {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border-left: 4px solid #d4a574;
+}
+
+.menu-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.item-header {
+  display: flex;
+  justify-content: between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.item-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+  flex: 1;
+}
+
+.item-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #d4a574;
+  margin-left: 1rem;
+}
+
+.item-description {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.item-ingredients {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+/* Badges */
+.popular-badge,
+.vegetarian-badge,
+.spicy-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.popular-badge {
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  color: #333;
+}
+
+.vegetarian-badge {
+  background: linear-gradient(135deg, #48bb78, #68d391);
+  color: white;
+}
+
+.spicy-badge {
+  background: linear-gradient(135deg, #e53e3e, #fc8181);
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .category-title {
+    font-size: 2rem;
+  }
+
+  .menu-item {
+    padding: 1.25rem;
+  }
+
+  .item-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .item-price {
+    margin-left: 0;
+    margin-top: 0.25rem;
+  }
+
+  .item-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-items {
+    gap: 1rem;
+  }
+
+  .menu-item {
+    padding: 1rem;
+  }
+
+  .category-title {
+    font-size: 1.75rem;
+  }
+}
