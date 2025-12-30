@@ -6,7 +6,6 @@ dotenv.config();
 
 const app = express();
 
-// ✅ CORS (no trailing slash in CLIENT_URL on Render!)
 app.use(
   cors({
     origin: process.env.CLIENT_URL,
@@ -15,12 +14,8 @@ app.use(
   })
 );
 
-// ✅ Important for preflight
-app.options("*", cors());
-
 app.use(express.json());
 
-// Health check
 app.get("/api/health", (req, res) => {
   res.json({ ok: true });
 });
@@ -31,6 +26,6 @@ app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/reservations", require("./routes/reservationRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 
-// ✅ Listen MUST be last
+// Listen last
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Backend running on port ${PORT}`));
